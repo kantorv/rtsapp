@@ -11,12 +11,51 @@ jobs:
         node-version: [14.x]
     steps:
     - uses: actions/checkout@v2
+      with:
+        persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal token
+        fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
+
     - uses: actions/setup-node@v2
       with:
         node-version: '14'
+
+    - uses: actions/cache@v2
+      with:
+        path: '**/node_modules'
+        key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+
     - name: Install Yarn
       run: npm install yarn
-    - name: Install Packages
-      run: yarn install
-    - name: Updating Domain
-      run: echo "Update domain"
+
+    - name: Setup git credentials
+      run: |
+        git config --local user.email "kantorvv+githubactions@gmail.com"
+        git config --local user.name "github-actions[bot]"
+    - name: Move to build branch
+      run: |
+        git status
+        rm package-lock.json
+        git diff  package.json
+        git checkout package.json
+        git checkout build 
+        git reset --hard master
+
+    - name: Install packages 
+      run: yarn install  
+    - name: Create build
+      run:   CI='' yarn build
+    - name: Commit files
+      env:
+        DOMAIN_NAME: rtsapp.myboilerplate.com  # TODO: move to stored env variables
+      run: |
+        [ -d './docs' ]  && rm -rf ./docs
+        mv build docs
+        echo  ${{  env.DOMAIN_NAME }} > ./docs/CNAME
+        git add ./docs
+        git commit -m "deploy commit" ./docs 
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.DEPLOY_TOKEN }}
+        branch: build
+        force: true
