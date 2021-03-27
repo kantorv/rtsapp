@@ -1,5 +1,5 @@
  
-import React from 'react';
+import { useState, useEffect } from 'react';
 import logo from '../logo.svg';
 import Markdown from 'markdown-to-jsx';
 import { createStyles, Theme, makeStyles, useTheme } from '@material-ui/core/styles';
@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
 
 function README() {
-  const [mdtext,  setMdtext] = React.useState<string>("")
+  const [mdtext,  setMdtext] = useState<string>("")
   const theme = useTheme();
   const classes = useStyles();
 
@@ -47,12 +47,12 @@ function README() {
 };
 
 
-  React.useEffect(()=>{
+  useEffect(()=>{
 
   
   },[])
 
-  React.useEffect(()=>{
+  useEffect(()=>{
     if (mdtext) console.log("[README] markdown text updated")
     else {
       readTextFile("https://raw.githubusercontent.com/coolapp-il/rtsapp/master/README.md")
