@@ -6,8 +6,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      DOMAIN_NAME: rtsapp.myboilerplate.com  # TODO: move to stored env variables
     strategy:
       matrix:
         node-version: [14.x]
@@ -47,7 +45,11 @@ jobs:
     - name: Create build
       run:   CI='' yarn build
     - name: Commit files
+      env:
+        DOMAIN_NAME: rtsapp.myboilerplate.com  # TODO: move to stored env variables
       run: |
+        [ -d './docs' ]  && rm -rf ./docs
+        mv build docs
         echo  ${{  env.DOMAIN_NAME }} > ./docs/CNAME
         git add ./docs
         git commit -m "deploy commit" ./docs 
