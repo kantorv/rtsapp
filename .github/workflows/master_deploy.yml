@@ -28,6 +28,8 @@ jobs:
 
     - name: Install Yarn
       run: npm install yarn
+    - name: clean
+      run: rm package-lock.json
     - name: Install Packages
       run: yarn install
     - name: Create build
@@ -36,7 +38,8 @@ jobs:
       run: |
         git config --local user.email "kantorvv+githubactions@gmail.com"
         git config --local user.name "github-actions[bot]"
-        git checkout build 
+        git reset --hard master
+        git checkout build
         echo  ${{  env.DOMAIN_NAME }} > ./docs/CNAME
         git add ./docs
         git commit -m "deploy commit" ./docs 
