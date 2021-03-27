@@ -28,17 +28,18 @@ jobs:
       run: npm install yarn
     - name: Install Packages
       run: yarn install
-
-
     - name: Create build
       run: yarn buildci
     - name: Commit files
       run: |
         git config --local user.email "kantorvv+githubactions@gmail.com"
         git config --local user.name "github-actions[bot]"
+        git checkout build 
+        echo "rtsapp.myboilerplate.com" > ./docs/CNAME
+        git add ./docs/
         git commit -m "deploy commit" -a
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:
         github_token: ${{ secrets.DEPLOY_TOKEN }}
-        branch: ${{ github.ref }}
+        branch: build
