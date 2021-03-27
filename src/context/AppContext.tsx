@@ -17,10 +17,10 @@ export const Langs:Record<string, Lang> = {
 }
 
 
-const DataProvider: React.FC<React.ReactNode> = (props:any) => {
+const DataProvider: React.FC<React.ReactNode> = (props:{children?:React.ReactNode}) => {
   const {children} = props
   const [records, setRecords] = React.useState<IRecord[]>([]);
-  const [direction, setDirection] = React.useState<AppDirection>("rtl");
+  const [direction, setDirection] = React.useState<AppDirection>("ltr");
   const { i18n } = useTranslation();
 
 
@@ -31,13 +31,13 @@ const DataProvider: React.FC<React.ReactNode> = (props:any) => {
   })
 
   React.useEffect(() => {
-    setRecords([{id:1},{id:2}])
+    setRecords([{id:1},{id:2}]) //sample records for testing availability within components
   
   },[ ])
 
 
   React.useEffect(() => {
-    console.log("[DataProvider]lang updated",lang)
+    console.log("[DataProvider] lang updated",lang)
     i18n.changeLanguage(lang.code)
     setDirection(lang.direction)
   },[lang])
@@ -51,7 +51,6 @@ const DataProvider: React.FC<React.ReactNode> = (props:any) => {
     <AppContext.Provider value={{
       records,
       direction,
-
       lang,
       setLang
     }}>

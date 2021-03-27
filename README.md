@@ -1,9 +1,12 @@
 # React Typecript Boilerplate
 
 
-## Added components:
+## Contains:
 
+### `Typescript support`
 
+Preloaded types at `type.d.ts`, `react-i18next.d.ts`\
+Regular js/jsx allowed as well (and used in some plases)
 
 ### `MUI`
 
