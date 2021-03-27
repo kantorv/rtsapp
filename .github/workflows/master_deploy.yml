@@ -33,13 +33,15 @@ jobs:
         git config --local user.email "kantorvv+githubactions@gmail.com"
         git config --local user.name "github-actions[bot]"
     - name: Move to build branch
+      env: 
+          GITHUB_REF: ${{ github.head_ref }} 
       run: |
         git status
         rm package-lock.json
         git diff  package.json
         git checkout package.json
         git checkout build 
-        git reset --hard master
+        git reset --hard $GITHUB_REF
 
     - name: Install packages 
       run: yarn install  
