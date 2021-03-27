@@ -1,4 +1,4 @@
-import React from 'react';
+import { useContext, useState, useEffect } from 'react';
 import { createStyles, Theme, makeStyles, useTheme } from '@material-ui/core/styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import Drawer from '@material-ui/core/Drawer';
@@ -104,12 +104,12 @@ const AppDrawer  = (props:any) => {
   let location = useLocation();
   const { t } = useTranslation();
   const matches = useMediaQuery(theme.breakpoints.up('sm'));
-  const {  records} = React.useContext(AppContext) as IAppContext;
-  const [record, setRecord] = React.useState<any>()
+  const {  records} = useContext(AppContext) as IAppContext;
+  const [record, setRecord] = useState<any>()
 
-  const [open, setOpen] = React.useState(true);
+  const [open, setOpen] = useState(true);
 
-  React.useEffect(() => {
+  useEffect(() => {
    // ga.send(["pageview", location.pathname]);
 
     console.log("[AppDrawer] location changed", location)
@@ -126,7 +126,7 @@ const AppDrawer  = (props:any) => {
 
     {
       text:t('menu.page1'),
-      to:"/page1",
+      to:"/main",
       icon:<ViewListIcon />
     },
 
