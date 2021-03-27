@@ -6,6 +6,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      DOMAIN_NAME: rtsapp.myboilerplate.com  # TODO: move to stored env variables
     strategy:
       matrix:
         node-version: [14.x]
@@ -35,7 +37,7 @@ jobs:
         git config --local user.email "kantorvv+githubactions@gmail.com"
         git config --local user.name "github-actions[bot]"
         git checkout build 
-        echo "rtsapp.myboilerplate.com" > ./docs/CNAME
+        echo  ${{  env.DOMAIN_NAME }} > ./docs/CNAME
         git add ./docs
         git commit -m "deploy commit" ./docs 
     - name: Push changes
