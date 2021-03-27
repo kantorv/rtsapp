@@ -34,11 +34,11 @@ jobs:
         git config --local user.email "kantorvv+githubactions@gmail.com"
         git config --local user.name "github-actions[bot]"
     - name: Move to build branch
-      run: git reset --hard master && git checkout build
+      run: rm package-lock.json  && git checkout build && git reset --hard master
     - name: Install packages 
       run: yarn install  
     - name: Create build
-      run:  yarn buildci
+      run:   CI='' yarn build
     - name: Commit files
       run: |
         echo  ${{  env.DOMAIN_NAME }} > ./docs/CNAME
