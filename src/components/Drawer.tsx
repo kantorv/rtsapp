@@ -124,21 +124,21 @@ const AppDrawer  = (props:any) => {
   const Menu = [
 
     {
-      text:t('menu.map'),
+      text:"Page1",
       to:"/",
       icon:<PublicIcon />
     },
 
     {
-      text:t('menu.table'),
-      to:"/table",
+      text:"Page2",
+      to:"/page2",
       icon:<ViewListIcon />
     },
 
 
     {
-      text:t('menu.statistics'),
-      to:"/statistics",
+      text:"Page3",
+      to:"/page3",
       icon:<EqualizerIcon />
     },
     // {
@@ -177,7 +177,14 @@ const AppDrawer  = (props:any) => {
  
             <Divider />
 
-
+            <List>
+                    {Menu.map((item, index) => (
+                      <ListItem button key={item.text} component={Link} to={item.to} >
+                        <ListItemIcon>{item.icon}</ListItemIcon>
+                        <ListItemText primary={item.text} />
+                      </ListItem>
+                    ))}
+                  </List>
 
 
 
