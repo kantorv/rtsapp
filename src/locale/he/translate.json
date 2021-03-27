@@ -1,0 +1,15 @@
+{
+    "translations": {
+        "menu" : {
+            "main" : "דף הבית",
+            "page1" : "דף ראשון",
+            "page2"  : "דף שני",
+            "page3"  : "דף שלישי"
+        },
+        "footer" :{
+            "copyright" : "Copyright",
+            "tos" : "ToS",
+            "pp" : "Privacy Policy"
+        }
+    }
+}

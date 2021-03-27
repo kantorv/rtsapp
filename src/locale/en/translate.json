@@ -1,0 +1,15 @@
+{
+    "translations": {
+        "menu" : {
+            "main" : "Main",
+            "page1" : "First Page",
+            "page2"  : "Second Page",
+            "page3"  : "Third Page"
+        },
+        "footer" :{
+            "copyright" : "Copyright",
+            "tos" : "ToS",
+            "pp" : "Privacy Policy"
+        }
+    }
+}

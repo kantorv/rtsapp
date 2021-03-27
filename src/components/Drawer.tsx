@@ -1,4 +1,4 @@
-import { useContext, useState, useEffect } from 'react';
+import React from 'react';
 import { createStyles, Theme, makeStyles, useTheme } from '@material-ui/core/styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import Drawer from '@material-ui/core/Drawer';
@@ -100,45 +100,40 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const AppDrawer  = (props:any) => {
   const classes = useStyles();
-    const theme = useTheme();
+  const theme = useTheme();
   let location = useLocation();
   const { t } = useTranslation();
   const matches = useMediaQuery(theme.breakpoints.up('sm'));
-  const {  records} = useContext(AppContext) as IAppContext;
-  const [record, setRecord] = useState<any>()
+  const {  records} = React.useContext(AppContext) as IAppContext;
+  const [record, setRecord] = React.useState<any>()
 
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = React.useState(true);
 
-  useEffect(() => {
+  React.useEffect(() => {
    // ga.send(["pageview", location.pathname]);
 
     console.log("[AppDrawer] location changed", location)
   }, [location]);
 
 
-
- 
-
-
-
   const Menu = [
 
     {
-      text:"Page1",
+      text:t('menu.main'),
       to:"/",
       icon:<PublicIcon />
     },
 
     {
-      text:"Page2",
-      to:"/page2",
+      text:t('menu.page1'),
+      to:"/page1",
       icon:<ViewListIcon />
     },
 
 
     {
-      text:"Page3",
-      to:"/page3",
+      text:t('menu.page2'),
+      to:"/page2",
       icon:<EqualizerIcon />
     },
     // {
@@ -184,7 +179,7 @@ const AppDrawer  = (props:any) => {
                         <ListItemText primary={item.text} />
                       </ListItem>
                     ))}
-                  </List>
+              </List>
 
 
 
