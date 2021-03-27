@@ -18,5 +18,7 @@ jobs:
       run: npm install yarn
     - name: Install Packages
       run: yarn install
+    - name: Install Packages
+      run: yarn publish
     - name: Updating Domain
       run: echo "Update domain"

@@ -3,6 +3,14 @@
 
 ## Contains:
 
+
+### `React 17+`
+Created with `npx create-react-app rtsapp --template typescript`\
+New jsx support, old style/unnecessary react imports removed with magic command \
+`npx react-codemod update-react-imports`
+
+
+
 ### `Typescript support`
 
 Preloaded types at `type.d.ts`, `react-i18next.d.ts`\
