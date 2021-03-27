@@ -1,4 +1,3 @@
-import React from 'react';
 import Link from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
 import { useTranslation } from 'react-i18next';
@@ -21,6 +20,6 @@ function Copyright() {
       </Typography>
     );
   }
-  
 
-  export default  Copyright
+
+export default  Copyright

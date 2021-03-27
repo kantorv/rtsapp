@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import ViewListIcon from '@material-ui/icons/ViewList';
 import ToggleButton from '@material-ui/lab/ToggleButton';
 import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup';
