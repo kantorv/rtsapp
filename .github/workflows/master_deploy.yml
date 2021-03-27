@@ -31,9 +31,9 @@ jobs:
 
 
     - name: Create build
-      run: yarn build
+      run: yarn buildci
     - name: move folder
-      run: mv build docks
+      run: [ -d './docs' ]  && rm -rf ./docs; mv build docs
     - name: Commit files
       run: |
         git config --local user.email "kantorvv+githubactions@gmail.com"
