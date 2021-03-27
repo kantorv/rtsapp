@@ -1,8 +1,9 @@
-name: GH-Deploy
+name: GH-Publish
 on:
   push:
     branches:
       - master
+      - bugfix/ci_fixes001
 jobs:
   build:
     runs-on: ubuntu-latest
