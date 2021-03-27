@@ -36,8 +36,8 @@ jobs:
         git config --local user.name "github-actions[bot]"
         git checkout build 
         echo "rtsapp.myboilerplate.com" > ./docs/CNAME
-        git add ./docs/
-        git commit -m "deploy commit" -a
+        git add ./docs
+        git commit -m "deploy commit" ./docs 
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:
