@@ -11,13 +11,12 @@ import Wrapper from './components/Wrapper'
 import ThemeProvider from './context/ThemeProvider'
 
 import Main from './pages/Main'
-
+import README from  './pages/Readme'
 
 
 function App() {
   return (
-    <div className="App">
-    <header className="App-header">
+
         <DataProvider>
           <Router  >
             <ThemeProvider>
@@ -25,16 +24,19 @@ function App() {
                 <Wrapper>
                   <Switch>
                             <Route  exact path="/">
+                                <README   />
+                            </Route>
+                            <Route   path="/main  ">
                                 <Main   />
                             </Route>
+                            
                             
                   </Switch>
                 </Wrapper>
               </ThemeProvider>
           </Router>
         </DataProvider>
-      </header>
-    </div>
+
   );
 }
 

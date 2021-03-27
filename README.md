@@ -1,14 +1,15 @@
+![badge](https://github.com/coolapp-il/rtsapp/actions/workflows/master_deploy.yml/badge.svg)
+
 # React Typecript Boilerplate
 
 
-## Contains:
+## Contains
 
 
 ### `React 17+`
 Created with `npx create-react-app rtsapp --template typescript`\
 New jsx support, old style/unnecessary react imports removed with magic command \
 `npx react-codemod update-react-imports`
-
 
 
 ### `Typescript support`
@@ -32,4 +33,7 @@ Context API initial setup implemented (`./context/AppContext.tsx`)
 
 I18n translations implemented (`./i18n.ts`,  `./locale/translations` ) 
 
+### `Ci/CD`
+
+basic github actions worlkflow implemented (building and publishing for github-pages) `.github/workflows/master_deploy.yml`
 

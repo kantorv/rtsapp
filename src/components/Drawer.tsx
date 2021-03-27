@@ -126,7 +126,7 @@ const AppDrawer  = (props:any) => {
 
     {
       text:t('menu.page1'),
-      to:"/page1",
+      to:"/main",
       icon:<ViewListIcon />
     },
 
