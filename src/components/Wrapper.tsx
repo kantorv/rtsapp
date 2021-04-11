@@ -15,13 +15,15 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       display: 'flex',
-
+      flex:1,
+  //    backgroundColor:"maroon"
     },
     appBar: {
       zIndex: theme.zIndex.drawer + 1,
         background:"#fff1e4"
     },
     content: {
+      display:"flex",
       flexGrow: 1,
       padding: theme.spacing(3),
         paddingTop:64 + 10

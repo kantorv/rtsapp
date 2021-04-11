@@ -46,11 +46,7 @@ function README() {
     rawFile.send(null);
 };
 
-
-  useEffect(()=>{
-
-  
-  },[])
+ 
 
   useEffect(()=>{
     if (mdtext) console.log("[README] markdown text updated")
@@ -63,7 +59,7 @@ function README() {
 
   return (
     <>
-   {!mdtext? <div>Loaduing</div>:<Markdown  className={classes.mdcont}  >{mdtext}</Markdown>}
+   {!mdtext? <div>Loading</div>:<Markdown  className={classes.mdcont}  >{mdtext}</Markdown>}
     
     </>
   );
