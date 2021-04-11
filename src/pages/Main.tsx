@@ -6,9 +6,9 @@ import logo from '../logo.svg';
 
 function Main() {
   return (
-    <div className="App">
-    <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+    <div style={{flex:1,   display:"flex", alignItems:"center", justifyContent:"center"}}>
+      <div style={{flexGrow:0 }}>
+     <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
@@ -20,7 +20,7 @@ function Main() {
         >
           Learn React
         </a>
-        </header>
+        </div>
     </div>
   );
 }

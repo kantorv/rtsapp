@@ -10,8 +10,8 @@ import DataProvider from "./context/AppContext";
 import Wrapper from './components/Wrapper'
 import ThemeProvider from './context/ThemeProvider'
 
-import Main from './pages/Main'
-import Widget from './pages/Widget'
+import Firts from './pages/Main'
+import Second from './pages/Widget'
 import README from  './pages/Readme'
 
 
@@ -25,10 +25,18 @@ function App() {
                 <Wrapper>
                   <Switch>
                             <Route  exact path="/">
-                                <Widget   />
+                                <README   />
                             </Route>
                         
-                            
+                            <Route    path="/first">
+                                <Firts   />
+                            </Route>
+
+                            <Route    path="/second">
+                                <Second   />
+                            </Route>
+                        
+                        
                   </Switch>
                 </Wrapper>
               </ThemeProvider>
